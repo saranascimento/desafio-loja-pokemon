@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&family=Trade+Winds&display=swap');
+
+:root {
+    --header-grass-bg-color: #447e65;
+    --figure-grass-bg-color: #DEFDE0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+#root {
+    width: 100%;
+}
+
+.pokemon-price-image {
+    width: 24px;
+    margin-right: 4px;
+
+}
+
+
+

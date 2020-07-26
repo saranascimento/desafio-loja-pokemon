@@ -1,0 +1,167 @@
+.pokemon-list {
+    /* max-width: 740px;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-gap: 20px;
+    padding-inline-start: 0;
+}
+
+.pokemon-list article {
+    width: 225px;
+    height: 320px;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 7px 2px #ddd;
+}
+
+.pokemon-list article figure{
+    width: 100%;
+    height: 100%;
+    background-color: var(--figure-grass-bg-color);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.pokemon-list article figure::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 50%;
+    border-radius: 100%;
+    background-color: #fff;
+    opacity: .7;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+}
+
+.card_pokemon-button {
+    height: 36px;
+    border-radius: 5px;
+    border: 2px solid #a64b54;
+    background: none;
+    margin-top: 10px;
+    color: #a64b54;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pokemon-list article .card_pokemon-button:hover {
+    background: #a64b54;
+    color: white;
+}
+
+.pokemon-list article figure .card_pokemon-image {
+    width: 70%;
+    height: 50%;
+    z-index: 1;
+}
+
+.pokemon-list article figure figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.pokemon-list article .card_pokemon-name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+    color: #696969;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pokemon-list .card .card_pokemon-price-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-list .card .card_pokemon-price {
+    color: #a64b54;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+
+.steel {
+	background-color: #f4f4f4;
+}
+
+.fire {
+	background-color: #FDDFDF;
+}
+
+.grass {
+	background-color: #DEFDE0;
+}
+
+.electric {
+	background-color: #FCF7DE;
+}
+
+.water, .ice {
+	background-color: #DEF3FD;
+}
+
+.ground {
+	background-color: #f4e7da;
+}
+
+.rock {
+	background-color: #d5d5d4;
+}
+
+.fairy {
+	background-color: #fceaff;
+}
+
+.poison {
+	background-color: #98d7a5;
+}
+
+.bug {
+	background-color: #f8d5a3;
+}
+
+.dragon {
+	background-color: #97b3e6;
+}
+
+.psychic {
+	background-color: #eaeda1;
+}
+
+.flying {
+	background-color: #F5F5F5;
+}
+
+.fighting {
+	background-color: #E6E0D4;
+}
+
+.normal {
+	background-color: #F5F5F5;
+}
