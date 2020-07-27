@@ -19,13 +19,32 @@ export default class App  extends Component {
         this.loadPokemons();
     };
 
+    getPokemonThemeFromUrl(){
+      return window.location.pathname.split("/")[1] === "fire" ? "fire" : "grass"
+    }
+
     loadPokemons = async () => {
-        const response = await api.get(`type/12`)
-        this.setState({ pokemonList: response.data.pokemon, type: response.data.name})
+      let pokemonType = this.getPokemonThemeFromUrl()
+      const response = await api.get(`type/${pokemonType}`)
+      this.setState({ pokemonList: response.data.pokemon, type: response.data.name})
     };
 
     setPokemonSelected = (image, name, price) => {
-      this.setState({pokemonSelected: [...this.state.pokemonSelected, {image, name, price}]})    
+
+      // findIndex - retorna -1 se não encontrar ou o index do elemento encontrado
+      const found = this.state.pokemonSelected.findIndex(element => element.name === name ) 
+
+      if(found === -1) {
+        return this.setState({pokemonSelected: [...this.state.pokemonSelected, {image, name, price}]})  
+      }
+
+      let pokemonsSelectedList = [...this.state.pokemonSelected] 
+
+      pokemonsSelectedList[found].price += price
+
+      this.setState({pokemonSelected: pokemonsSelectedList})
+
+        
     }
 
   render () {
@@ -33,7 +52,8 @@ export default class App  extends Component {
     return  (
       <div className="App">
           <Header 
-          pokemonSelected={pokemonSelected}
+            pokemonSelected={pokemonSelected}
+            type={type}
           />
           <div className="store">
             <Main 

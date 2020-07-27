@@ -4,7 +4,7 @@ import {FaShoppingCart} from 'react-icons/fa'
 import { ClickAwayListener } from '@material-ui/core';
 import "./styles.css"
 
-const Header = ({pokemonSelected}) => {
+const Header = ({pokemonSelected, type}) => {
     
     const [open, setOpen] = React.useState(false);
   
@@ -18,17 +18,17 @@ const Header = ({pokemonSelected}) => {
 
     // console.log(pokemonSelected.length)
     return (
-        <header id="main-header">
+        <header className={`main-header main-header-${type}`}>
             <div className="box-header container">
-                <div>LogoPokemon</div>
-            <input 
-                type="text"  
-                id="search"
-                placeholder="Buscar por Pokemon..." 
-            />       
+                {/* <div>LogoPokemon</div> */}
+                    <input
+                        type="text"  
+                        id="search"
+                        placeholder="Buscar Pokemon..."  
+                    /> 
 
-            <ClickAwayListener onClickAway={handleClickAway}>
-            <div className="root">
+                <ClickAwayListener onClickAway={handleClickAway}>
+                <div className="root">
                 <div>
                     <button type="button" className="btn-header-cart" onClick={handleClick}>
                         
@@ -38,7 +38,8 @@ const Header = ({pokemonSelected}) => {
                 {open ? (
                     
                         <Cart 
-                        pokemonSelected={pokemonSelected}
+                            pokemonSelected={pokemonSelected}
+                            type={type}
                         />
                     
                 ) : null}

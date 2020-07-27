@@ -1,0 +1,154 @@
+.card {
+    width: 225px;
+    height: 320px;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 7px 2px #ddd;
+    transition: transform .2s;
+}
+
+
+.card-grass:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 4px 0px var(--primary-grass-color);
+}
+
+.card-fire:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 4px 0px var(--primary-fire-color);
+}
+
+.card figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.figure-card-fire {
+    background-color: var(--secondary-fire-color);
+}
+
+.figure-card-grass {
+
+    background-color: var(--secondary-grass-color);
+}
+
+.card figure::after {
+    content: "";
+    display: block;
+    width: 70%;
+    height: 50%;
+    border-radius: 100%;
+    background-color: #fff;
+    opacity: .7;
+    position: absolute;
+    top: 5%;
+    left: 15%;
+}
+
+.card_pokemon-button {
+    height: 36px;
+    border-radius: 5px;
+    background: none;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-btn-fire {
+    border: 2px solid var(--primary-fire-color);
+    color: var(--primary-fire-color);
+}
+
+.card-btn-grass {
+    border: 2px solid var(--primary-grass-color);
+    color: var(--primary-grass-color);
+}
+
+.card-btn-fire:hover {
+    background: var(--primary-fire-color);
+    color: white;
+}
+
+.card-btn-grass:hover {
+    background: var(--primary-grass-color);
+    color: white;
+}
+
+.card figure .card_pokemon-image {
+    width: 70%;
+    height: 50%;
+    z-index: 1;
+}
+
+.card figure figcaption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+}
+
+.card .card_pokemon-name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+    color: #696969;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card .card_pokemon-price-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .card_pokemon-price {
+    color: #a64b54;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    .card-btn-fire {
+        color: #fff; 
+        background: var(--primary-fire-color) ;
+    }
+
+    .card-btn-grass {
+        color: #fff; 
+        background: var(--primary-grass-color) ;
+    }
+
+    .card-grass,
+    .card-grass:hover{
+        transform: scale(1);
+        box-shadow: 0px 0px 4px 0px var(--primary-grass-color);
+    }
+
+    .card-fire,
+    .card-fire:hover{
+        transform: scale(1);
+        box-shadow: 0px 0px 4px 0px var(--primary-fire-color);
+    }
+    
+}

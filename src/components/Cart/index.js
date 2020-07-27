@@ -2,11 +2,11 @@ import React from 'react';
 
 import './styles.css'
 
-const Cart = ({pokemonSelected}) => {
+const Cart = ({pokemonSelected, type}) => {
     return (
         <div className="cart">
             <div className=" cart-header">
-                <h1>Resumo do pedido</h1>
+                <h1>Carrinho</h1>
             </div>
             <div className="cart-body">
 
@@ -15,8 +15,10 @@ const Cart = ({pokemonSelected}) => {
                     <div className="item">
                         <img className="item_pokemon-image" alt="image pokemon" src={pokemon.image}/>
                         <strong className="item_pokemon-name">{pokemon.name}</strong>
-                        <span className="item__pokemon-price">{pokemon.price}</span>
-                    
+                        <div className="price">
+                            <img className="pokemon-price-image" alt="image of pokecoin" src={"/img/pokecoin.png"} />
+                            <span className="item__pokemon-price">{pokemon.price}</span>
+                        </div>
                     </div>
                 ))}
                 
@@ -35,7 +37,7 @@ const Cart = ({pokemonSelected}) => {
                         </div>
                     </div> 
                     
-                <button className="item_cart-button" href="#">Finalizar</button>
+                <button className={`item_cart-button btn-cart-${type}`} href="#">Finalizar</button>
             </div>
 
         </div>

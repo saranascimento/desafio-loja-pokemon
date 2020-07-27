@@ -8,8 +8,16 @@
     flex-direction: column;
     font-size: 1.5em;
     position: absolute;
-    border: 4px solid #ddd;
+    border: 2px solid #ddd;
     
+}
+
+@media only screen and (max-width: 600px) {
+    .cart{
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .root {
@@ -20,7 +28,7 @@
 .cart-header {
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     box-shadow: 1px 1px 5px #ccccccd9;
     margin-bottom: 4px;
@@ -28,7 +36,7 @@
 
 .cart-header h1 {
     padding: 20px 8px;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .cart-body {
@@ -40,7 +48,7 @@
 
 .item {
     display: grid;
-    grid-template-columns: 60px 1fr 50px;
+    grid-template-columns: 60px 1fr 65px;
     width: 100%;
     align-items: center;
     justify-items: flex-start;
@@ -72,6 +80,7 @@
 .item_total-price {
     font-size: 18px;
     padding: 20px 0;
+    border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     margin-bottom: 8px;
     display: flex;

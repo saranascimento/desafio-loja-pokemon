@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&family=Trade+Winds&display=swap');
 
 :root {
-    --header-grass-bg-color: #447e65;
-    --figure-grass-bg-color: #DEFDE0;
+    --primary-grass-color: #447e65;
+    --secondary-grass-color: #DEFDE0;
+    --primary-fire-color: #c24d4d;
+    --secondary-fire-color:#FDDFDF;
+
 }
 
 
@@ -22,7 +25,7 @@ body {
 }
 
 .container {
-    width: 960px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
