@@ -1,4 +1,4 @@
-.main-header {
+.header {
     width: 100%;
     height: 100px;
     font-size: 18px;
@@ -10,24 +10,12 @@
     margin-bottom: 20px;
 } 
 
-.main-header-fire {
+.header-fire {
     background-color: var(--primary-fire-color);
 }
 
-.main-header-grass {
+.header-grass {
     background-color: var(--primary-grass-color);
-}
-
- #search {
-    width: 70%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #ffffff url(https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/111px-Vector_search_icon.svg.png) no-repeat;
-    background-size: 20px;
-    background-position: 1.8% 50%;
-    
 }
 
 .box-header {
@@ -36,6 +24,27 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 20px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-wrapper img {
+    width: 35px;
+    margin: 4px;
+}
+
+.logo-wrapper p {
+    font-size: 1.4em;
+}
+
+@media only screen and (max-width: 700px) {
+    .logo-wrapper p {
+        display: none;
+    }
 }
 
 .btn-header-cart {

@@ -4,22 +4,29 @@ import api from '../src/services/api'
 import "./styles.css"
 
 import Header from './components/Header';
-import Main from './components/Main';
+import Cards from './components/Cards';
 
 
 
 export default class App  extends Component { 
-  state = {
-    pokemonList: [],
-    pokemonSelected: [],
-    type: "",
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      pokemonList: [],
+      pokemonSelected: [],
+      type: "",
+      filterPokemon: "",
     };
+
+    this.filterUpdate = this.filterUpdate.bind(this);
+  }
 
     componentDidMount() {
         this.loadPokemons();
     };
 
-    getPokemonThemeFromUrl(){
+    getPokemonThemeFromUrl = () => {
       return window.location.pathname.split("/")[1] === "fire" ? "fire" : "grass"
     }
 
@@ -29,39 +36,54 @@ export default class App  extends Component {
       this.setState({ pokemonList: response.data.pokemon, type: response.data.name})
     };
 
+    resetCart = () => {
+      return this.setState({pokemonSelected: []})
+    }
+
     setPokemonSelected = (image, name, price) => {
 
-      // findIndex - retorna -1 se não encontrar ou o index do elemento encontrado
-      const found = this.state.pokemonSelected.findIndex(element => element.name === name ) 
+      const found = this.state.pokemonSelected.findIndex(pokemon => pokemon.name === name ) 
 
       if(found === -1) {
-        return this.setState({pokemonSelected: [...this.state.pokemonSelected, {image, name, price}]})  
+        return this.setState({pokemonSelected: [...this.state.pokemonSelected, {image, name, price, amount: 1 }]})  
       }
 
       let pokemonsSelectedList = [...this.state.pokemonSelected] 
-
-      pokemonsSelectedList[found].price += price
+      console.log(pokemonsSelectedList[found])
+      
+      pokemonsSelectedList[found].amount += 1
 
       this.setState({pokemonSelected: pokemonsSelectedList})
 
         
     }
 
+    filterUpdate(value) {
+      this.setState({
+        filterPokemon: value
+      })
+    }
+
   render () {
-    const { pokemonList, type, pokemonSelected } = this.state
+
+    console.log("Valor: ", this.state.filterPokemon)
+    const { pokemonList, type, pokemonSelected, filterPokemon } = this.state
+   
     return  (
       <div className="App">
           <Header 
             pokemonSelected={pokemonSelected}
             type={type}
+            resetCart={this.resetCart}
+            filterUpdate={this.filterUpdate}
           />
           <div className="store">
-            <Main 
+            <Cards 
               pokemonList={pokemonList}
               type={type}
               setPokemonSelected={this.setPokemonSelected}
+              filterPokemon={filterPokemon}
             />
-        
           </div>
         
       </div>

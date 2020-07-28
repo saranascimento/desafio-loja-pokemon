@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
-import Cart from '../Cart'
+
 import {FaShoppingCart} from 'react-icons/fa'
 import { ClickAwayListener } from '@material-ui/core';
+
+import Cart from '../Cart'
+import Search from '../Search'
+
 import "./styles.css"
 
-const Header = ({pokemonSelected, type}) => {
+const Header = ({pokemonSelected, type, resetCart, filterUpdate}) => {
     
     const [open, setOpen] = React.useState(false);
   
@@ -16,19 +20,20 @@ const Header = ({pokemonSelected, type}) => {
       setOpen(false);
     };
 
-    // console.log(pokemonSelected.length)
     return (
-        <header className={`main-header main-header-${type}`}>
+        <header className={`header header-${type}`}>
             <div className="box-header container">
-                {/* <div>LogoPokemon</div> */}
-                    <input
-                        type="text"  
-                        id="search"
-                        placeholder="Buscar Pokemon..."  
-                    /> 
+                <div className="logo-wrapper ">
+                    <img className="" alt="Pokebola" src={`/img/pokeball-${type}.svg`} />
+                    <p>PokeStore</p>
+                </div>
+                
+                <Search 
+                    filterUpdate={filterUpdate}
+                />
 
                 <ClickAwayListener onClickAway={handleClickAway}>
-                <div className="root">
+                <div className="cart-wrapper">
                 <div>
                     <button type="button" className="btn-header-cart" onClick={handleClick}>
                         
@@ -40,11 +45,13 @@ const Header = ({pokemonSelected, type}) => {
                         <Cart 
                             pokemonSelected={pokemonSelected}
                             type={type}
+                            resetCart={resetCart}
+                            filterUpdate={filterUpdate}
                         />
                     
                 ) : null}
-            </div>
-            </ClickAwayListener>
+                </div>
+                </ClickAwayListener>
             </div>  
         </header>
     )

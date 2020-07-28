@@ -5,7 +5,7 @@ import Card from '../Card'
 
 import "./styles.css"
 
-export default class Main extends Component {
+export default class Cards extends Component {
     
 
     getIdFromURL = (url) => {
@@ -16,11 +16,16 @@ export default class Main extends Component {
 
 
     render() {
-        const {pokemonList, type, setPokemonSelected} = this.props
+        let {pokemonList, type, setPokemonSelected, filterPokemon} = this.props
+  
         return (
             <div className="pokemon-list container">
             
-                {pokemonList.slice(0,32).map((pokemon, index) => ( 
+                {pokemonList.slice(0,32)
+                .filter(pokemon => {
+                    return pokemon.pokemon.name.indexOf(filterPokemon) >= 0
+                })
+                .map((pokemon, index) => ( 
                     <Card
                         id={index}
                         type={type}
@@ -28,6 +33,7 @@ export default class Main extends Component {
                         name={pokemon.pokemon.name}
                         price={this.getIdFromURL(pokemon.pokemon.url)}
                         setPokemonSelected={setPokemonSelected}
+                        insideCart={false}
                     />      
                    
                 ))}

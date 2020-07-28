@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&family=Trade+Winds&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&family=Press+Start+2P&family=Roboto:wght@400;700&family=Trade+Winds&display=swap');
 
 :root {
     --primary-grass-color: #447e65;
     --secondary-grass-color: #DEFDE0;
+
     --primary-fire-color: #c24d4d;
     --secondary-fire-color:#FDDFDF;
+
+    --dark-color: #696969;
+    --light-color: #f5f5f5; 
 
 }
 
@@ -17,8 +21,8 @@
 }
 
 body {
-    background-color: whitesmoke;
-    color: #333;
+    background-color: var(--light-color);
+    color: var(--dark-color);
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;

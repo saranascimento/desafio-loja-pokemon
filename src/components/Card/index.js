@@ -2,8 +2,8 @@ import React from 'react'
 
 import './styles.css'
 
-const Card = ({id, type, image, name, price, setPokemonSelected}) => {
-
+const Card = ({id, type, image, name, price, setPokemonSelected,}) => {
+    
     return (
 
         <article className={`card card-${type}`} key={id}>
