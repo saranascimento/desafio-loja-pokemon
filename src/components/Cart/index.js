@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Card from '../Card'
+
+import {FaCheck} from 'react-icons/fa'
+
+import ItemCart from '../ItemCart'
 import './styles.css'
 
 const Cart = ({pokemonSelected, type, resetCart, filterUpdate}) => {
+
+    let [active, changeActive ] = useState(false)
+
+    const updateActive = (active) => {
+        if(window.matchMedia('(max-width: 600px)').matches) {
+            changeActive(!active)
+        }
+    }
 
     const handleOpen = () => {
         filterUpdate("") 
@@ -17,36 +28,36 @@ const Cart = ({pokemonSelected, type, resetCart, filterUpdate}) => {
     setOpen(false);
     };
 
-
-
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     return (
-        <div className="cart">
+        <div className={`cart ${active ? "active-cart" : ''}`} onClick={() => updateActive(active)}>
             <div className=" cart-header">
                 <h1>Carrinho</h1>
             </div>
             <div className="cart-body">
                 {pokemonSelected.map((pokemon) => (
-                    <div className="item">
-                        <img className="item_pokemon-image" alt="image pokemon" src={pokemon.image}/>
-                        <strong className="item_pokemon-name">{pokemon.name}<span>{` (x${pokemon.amount})`}</span></strong>
-                        <div className="price">
-                            <img className="pokemon-price-image" alt="image of pokecoin" src={"/img/pokecoin.png"} />
-                        <span className="item__pokemon-price">{pokemon.price * pokemon.amount}</span>
-                        </div>
-                    </div>
-                    // <Card id={}/>
+                    
+                    <ItemCart 
+                        pokemon={pokemon}
+                    />
                 ))}        
             </div>    
             <div className="cart-footer">
                 <div className="item_total-price">
-                    <p>Total: </p>
-                    <div className="price">
-                        <img className="pokemon-price-image" alt="image of pokecoin" src={"/img/pokecoin.png"} />
+                    <div className="amount-items">
                         <span className="card_pokemon-price">{pokemonSelected.reduce((totalPrice, pokemon) => {
-                            return totalPrice + Number(pokemon.price * pokemon.amount)
-                        },0)}</span>
+                            return totalPrice + pokemon.amount
+                        },0)} Pokemons</span> 
+                    </div>
+                    <div className="total-price">
+                        <p>Total: </p>
+                        <div className="price">
+                            <img className="pokemon-price-image" alt="image of pokecoin" src={"/img/pokecoin.png"} />
+                            <span className="card_pokemon-price">{pokemonSelected.reduce((totalPrice, pokemon) => {
+                                return totalPrice + Number(pokemon.price * pokemon.amount)
+                            },0)}</span>
+                        </div>
                     </div>
                 </div> 
                     
@@ -68,10 +79,12 @@ const Cart = ({pokemonSelected, type, resetCart, filterUpdate}) => {
                 <Fade in={open}>
                 <div className={`card-modal card-modal-${type}`}>
                     <div className={`box-modal box-modal-${type}`}>
+                        <FaCheck />
                         <h1 id="transition-modal-title">Obrigado!!!</h1>
                         <p id="transition-modal-description">Você recebeu de volta</p>
                         <span>
                             <img className="pokemon-price-image" alt="image of pokecoin" src={"/img/pokecoin.png"} />
+
                             {Number(Math.random() * 1000).toFixed(0)}
                         </span>
                     </div>

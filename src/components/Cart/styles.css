@@ -1,26 +1,38 @@
-.cart {
+ .cart {
     color: var(--dark-color);
-    width: 300px;
-    min-height: 500px;
+    width: 15em;
+    max-height: 22em;
     background-color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     font-size: 1.5em;
-    position: absolute;
     border: 2px solid #ddd;
-    left: -9em
 }
 
-@media only screen and (max-width: 600px) {
-    .cart{
-        right: 0;
-        margin-left: auto;
-        margin-right: auto;
+.cart-wrapper {
+    display: none;
+}
+
+.store .active-cart{
+    height: 450px;
+}
+
+@media only screen and (max-width: 700px) {
+    .cart {
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid #ddd;
+        margin-bottom: 40px;
+        overflow: hidden;
+        height: 80px;
     }
+
+    .cart-body{
+        min-height: 100px;
+    }
+    
 }
-
-
 
 .cart-wrapper {
     position: relative;
@@ -48,35 +60,23 @@
     padding: 8px;
 }
 
-.item {
-    display: grid;
-    grid-template-columns: 60px 1fr 65px;
-    width: 100%;
-    align-items: center;
-    justify-items: flex-start;
-    padding: 8px 0;
-    font-size: 18px;
-}
-
-.item:nth-child(2n+1) {
-    background-color: whitesmoke;
-}
-
-.item_pokemon-image {
-    width: 50px;
-    margin-left: 4px;
-}
-
-.item_pokemon-name {
-    font-size: 14px;
-}
-
 .cart-footer {
     width: 100%;
     display: inherit;
     flex-direction: column;
     margin-top: auto;
     padding: 8px;
+}
+
+.total-price {
+    margin: 9px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total-price p {
+    font-weight: 700;
 }
 
 .item_total-price {
@@ -87,12 +87,7 @@
     margin-bottom: 8px;
     display: flex;
     justify-content: space-between;
-}
-
-.price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .item_cart-button {
@@ -167,6 +162,10 @@
     align-items: center;
     flex-direction: column;
     border-radius: 4px;
+}
+
+.box-modal svg {
+    font-size: 2em;
 }
 
 .box-modal-grass {

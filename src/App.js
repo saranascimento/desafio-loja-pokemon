@@ -5,6 +5,7 @@ import "./styles.css"
 
 import Header from './components/Header';
 import Cards from './components/Cards';
+import Cart from './components/Cart';
 
 
 
@@ -49,7 +50,6 @@ export default class App  extends Component {
       }
 
       let pokemonsSelectedList = [...this.state.pokemonSelected] 
-      console.log(pokemonsSelectedList[found])
       
       pokemonsSelectedList[found].amount += 1
 
@@ -65,8 +65,6 @@ export default class App  extends Component {
     }
 
   render () {
-
-    console.log("Valor: ", this.state.filterPokemon)
     const { pokemonList, type, pokemonSelected, filterPokemon } = this.state
    
     return  (
@@ -77,12 +75,18 @@ export default class App  extends Component {
             resetCart={this.resetCart}
             filterUpdate={this.filterUpdate}
           />
-          <div className="store">
+          <div className="store container">
             <Cards 
               pokemonList={pokemonList}
               type={type}
               setPokemonSelected={this.setPokemonSelected}
               filterPokemon={filterPokemon}
+            />
+            <Cart 
+            pokemonSelected={pokemonSelected} 
+            type={type} 
+            resetCart={this.resetCart} 
+            filterUpdate={this.filterUpdate}
             />
           </div>
         

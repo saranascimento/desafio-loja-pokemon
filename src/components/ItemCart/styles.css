@@ -1,0 +1,28 @@
+.item {
+    display: grid;
+    grid-template-columns: 60px 1fr 65px;
+    width: 100%;
+    align-items: center;
+    justify-items: flex-start;
+    padding: 8px 0;
+    font-size: 18px;
+}
+
+.item:nth-child(2n+1) {
+    background-color: whitesmoke;
+}
+
+.item_pokemon-image {
+    width: 50px;
+    margin-left: 4px;
+}
+
+.item_pokemon-name {
+    font-size: 14px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

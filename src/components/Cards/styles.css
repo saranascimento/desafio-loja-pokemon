@@ -5,9 +5,23 @@
     padding-inline-start: 0;
     align-items: center;
     justify-items: center;
+    max-width: 800px;
+    margin: 0 20px;
 }
 
 .store{
     margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
 }
 
+@media only screen and (max-width: 700px) {
+    .store{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .pokemon-list{
+        max-width: initial;
+    }
+}
