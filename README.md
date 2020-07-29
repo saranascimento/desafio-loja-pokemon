@@ -1,4 +1,4 @@
-# Desafio B2W - PokeStore
+# Desafio - PokeStore
 
 
 ### Instalação das dependências do projeto:
@@ -30,7 +30,10 @@ $ yarn start
 - **React / JavaScript**
 
 ### Screenshots do Projeto:
+-PokeStore de fogo
 ![PokeStore de fogo](./public/img/pokestore-fire.PNG)
+
+-PokeStore de Grama
 ![PokeStore da grama](./public/img/pokestore-grass.PNG)
 
 ### Funcionalidades do projeto:
