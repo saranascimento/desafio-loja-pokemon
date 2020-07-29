@@ -48,7 +48,7 @@ const Cart = ({pokemonSelected, type, resetCart, filterUpdate}) => {
                     <div className="amount-items">
                         <span className="card_pokemon-price">{pokemonSelected.reduce((totalPrice, pokemon) => {
                             return totalPrice + pokemon.amount
-                        },0)} Pokemons</span> 
+                        },0)} Pokemon</span> 
                     </div>
                     <div className="total-price">
                         <p>Total: </p>
