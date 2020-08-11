@@ -1,0 +1,25 @@
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoWrapper img {
+  width: 35px;
+  margin: 4px;
+}
+
+.logoWrapper p {
+  font-size: 1.4rem;
+  margin-right: 16px;
+}
+
+@media only screen and (max-width: 700px) {
+  .logoWrapper p {
+    display: none;
+  }
+
+  .logoWrapper img {
+    margin-right: 0.6rem;
+  }
+}

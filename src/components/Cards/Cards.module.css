@@ -1,0 +1,10 @@
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  padding-inline-start: 0;
+  align-items: center;
+  justify-items: center;
+  max-width: 800px;
+  margin: 0 20px;
+}

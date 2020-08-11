@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Ranchers&family=Press+Start+2P&family=Roboto:wght@400;700&family=Trade+Winds&display=swap');
+
+:root {
+  --primary-grass-color: #447e65;
+  --secondary-grass-color: #defde0;
+
+  --primary-fire-color: #c24d4d;
+  --secondary-fire-color: #fddfdf;
+
+  --dark-color: #696969;
+  --light-color: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+#root {
+  width: 100%;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(264px, auto));
+}
+
+.store {
+  display: flex;
+}
+
+@media only screen and (max-width: 700px) {
+  .store {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .cardsList {
+    max-width: initial;
+  }
+}
+
+.priceImage {
+  width: 24px;
+  margin-right: 4px;
+}

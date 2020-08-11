@@ -1,0 +1,102 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalWapper {
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2px 4px 3px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: animation 0.3s forwards;
+}
+
+@keyframes animation {
+  to {
+    opacity: initial;
+    transform: initial;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .modalWapper {
+    width: 80%;
+    font-size: 1em;
+  }
+}
+
+.modalWapper-grass {
+  background-color: var(--primary-grass-color);
+  border: 2px solid green;
+  box-shadow: 0px 0px 8px 3px var(--dark-color);
+}
+
+.modalWapper-fire {
+  background-color: var(--primary-fire-color);
+  border: 2px solid #c33535;
+  box-shadow: 0px 0px 8px 3px var(--dark-color);
+}
+
+.boxModal {
+  width: 85%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 4px;
+  position: relative;
+}
+
+.boxModal button {
+  display: flex;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: none;
+  border: none;
+  color: var(--dark-color);
+}
+
+.boxModal svg {
+  font-size: 1.2rem;
+}
+
+.boxModal-grass {
+  background: var(--secondary-grass-color);
+}
+
+.boxModal-fire {
+  background: var(--secondary-fire-color);
+}
+
+.boxModal h1 {
+  font-size: 3rem;
+}
+
+.boxModal p {
+  font-size: 1.4rem;
+  padding: 8px;
+  font-weight: 400;
+}
+
+.boxModal span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
