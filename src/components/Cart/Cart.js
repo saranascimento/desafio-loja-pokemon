@@ -1,6 +1,8 @@
 import React from 'react';
 import { GlobalContext } from '../../GlobalContext';
 import styles from './Cart.module.css';
+import { FaCartArrowDown } from 'react-icons/fa';
+
 import ItemCart from './ItemCart';
 import ThankfulModal from '../ThankfulModal/ThankfulModal';
 
@@ -33,6 +35,7 @@ const Cart = () => {
       onClick={() => updateActive(activeMobileCart)}
     >
       <div className={styles.cartHeader}>
+        <FaCartArrowDown />
         <h1>Carrinho</h1>
       </div>
 
