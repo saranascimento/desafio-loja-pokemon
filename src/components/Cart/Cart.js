@@ -15,6 +15,7 @@ const Cart = () => {
     modalIsOpen,
     setModalIsOpen,
   } = React.useContext(GlobalContext);
+
   let [activeMobileCart, changeActiveMobileCart] = React.useState(false);
 
   const updateActive = (activeMobileCart) => {
@@ -24,9 +25,13 @@ const Cart = () => {
   };
 
   const handleOpen = () => {
-    setModalIsOpen(true);
-    filterUpdate('');
-    resetCart();
+    if (pokemonSelected.length === 0) {
+      return;
+    } else {
+      setModalIsOpen(true);
+      filterUpdate('');
+      resetCart();
+    }
   };
 
   return (
