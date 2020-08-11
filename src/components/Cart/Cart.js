@@ -16,7 +16,7 @@ const Cart = () => {
   let [activeMobileCart, changeActiveMobileCart] = React.useState(false);
 
   const updateActive = (activeMobileCart) => {
-    if (window.matchMedia('(max-width: 700px)').matches) {
+    if (window.matchMedia('(max-width: 768px)').matches) {
       changeActiveMobileCart(!activeMobileCart);
     }
   };

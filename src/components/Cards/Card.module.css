@@ -104,7 +104,7 @@
   width: 90%;
 }
 
-.card .pokemonName {
+.pokemonName {
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: 1.3em;
@@ -112,19 +112,19 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.card .priceWrapper {
+.priceWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card .price {
+.price {
   color: #a64b54;
   font-family: 'Press Start 2P', cursive;
   font-size: 14px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
   .card-btn-fire {
     color: #fff;
     background: var(--primary-fire-color);

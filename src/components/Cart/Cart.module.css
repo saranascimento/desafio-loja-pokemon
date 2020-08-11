@@ -12,21 +12,23 @@
 }
 
 .activeCart {
-  height: 450px !important;
+  height: calc(100vh + 120px) !important;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
   .cart {
     align-items: center;
     flex-direction: column;
     border: 2px solid #ddd;
     margin-bottom: 40px;
+    margin-left: 1rem;
     overflow: hidden;
     height: 80px;
+    width: 100vw;
   }
 
   .cartBody {
-    min-height: 100px;
+    min-height: 28vh;
   }
 }
 
