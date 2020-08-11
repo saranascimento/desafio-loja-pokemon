@@ -21,10 +21,9 @@
     flex-direction: column;
     border: 2px solid #ddd;
     margin-bottom: 40px;
-    margin-left: 1rem;
     overflow: hidden;
-    height: 80px;
-    width: 100vw;
+    height: 95px;
+    width: 80vw;
   }
 
   .cartBody {
