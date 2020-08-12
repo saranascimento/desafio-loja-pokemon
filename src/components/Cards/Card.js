@@ -3,7 +3,12 @@ import { GlobalContext } from '../../GlobalContext';
 import styles from './Card.module.css';
 
 const Card = ({ index, image, name, price }) => {
-  const { type, getPokemonSelected } = React.useContext(GlobalContext);
+  const {
+    type,
+    getPokemonSelected,
+    clickedButtons,
+    setClickedButtons,
+  } = React.useContext(GlobalContext);
 
   return (
     <article key={index} className={`${styles.card} ${styles[`card-${type}`]}`}>
@@ -19,15 +24,21 @@ const Card = ({ index, image, name, price }) => {
             />
             <span className={styles.price}>{price}</span>
           </div>
-          {/* <Button type={type} image={image} id={id} name={name} price={price} /> */}
+
           <button
-            className={`${styles.btn} ${styles[`btn-${type}`]}`}
+            className={`${styles.btn} ${styles[`btn-${type}`]}
+              ${
+                clickedButtons.includes(index)
+                  ? styles[`adicionado-${type}`]
+                  : ''
+              }`}
             href="#"
             onClick={() => {
               getPokemonSelected(image, name, price);
+              setClickedButtons([...clickedButtons, index]);
             }}
           >
-            Adicionar +
+            {clickedButtons.includes(index) ? 'Adicionado' : 'Adicionar +'}
           </button>
         </figcaption>
       </figure>

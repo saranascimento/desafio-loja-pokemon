@@ -5,8 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import styles from './ThankfulModal.module.css';
 
 const ThankfulModal = () => {
-  const { type } = React.useContext(GlobalContext);
-  const { setModalIsOpen } = React.useContext(GlobalContext);
+  const { type, setModalIsOpen } = React.useContext(GlobalContext);
 
   function handleOutSideClick(event) {
     if (event.target === event.currentTarget) setModalIsOpen(false);
