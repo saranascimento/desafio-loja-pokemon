@@ -25,7 +25,7 @@ const Cart = () => {
   };
 
   const handleOpen = () => {
-    if (selectedPokemon.length === 0) {
+    if (selectedPokemon.length === 1) {
       return;
     } else {
       setModalIsOpen(true);
