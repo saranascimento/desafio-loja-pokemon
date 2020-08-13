@@ -11,7 +11,7 @@ const ItemCart = ({ pokemon, index }) => {
       </strong>
       <div className={styles.itemPrice}>
         <img className="priceImage" alt="pokecoin" src={'/img/pokecoin.png'} />
-        <span>{pokemon.price * pokemon.amount}</span>
+        <span>{pokemon.id * pokemon.amount}</span>
       </div>
     </section>
   );

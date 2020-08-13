@@ -5,7 +5,10 @@ export const GlobalContext = React.createContext();
 
 export const GlobalStorage = ({ children, typeURL }) => {
   const [pokemonList, setPokemonList] = React.useState(null);
-  const [pokemonSelected, setPokemonSelected] = React.useState([]);
+  const [selectedPokemon, setSelectedPokemon] = React.useState([
+    { id: 0, image: '', name: '', price: 0, amount: 0 },
+  ]);
+  console.log(selectedPokemon);
   const [type, setType] = React.useState('');
   const [filterPokemon, setFilterPokemon] = React.useState('');
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
@@ -24,20 +27,27 @@ export const GlobalStorage = ({ children, typeURL }) => {
     loadPokemons();
   }, [typeURL.match.params.type]);
 
-  const getPokemonSelected = (image, name, price) => {
-    const found = pokemonSelected.findIndex((pokemon) => pokemon.name === name);
+  const getIdFromURL = (url) => {
+    let id = parseInt(url.split('/')[6]);
+    return id;
+  };
 
-    if (found === -1) {
-      return setPokemonSelected([
-        ...pokemonSelected,
-        { image, name, price, amount: 1 },
+  const insertSelectedPokemon = (image, name, id) => {
+    const pokemonFound = selectedPokemon.findIndex(
+      (pokemon) => pokemon.id === id,
+    );
+
+    if (pokemonFound === -1) {
+      return setSelectedPokemon([
+        ...selectedPokemon,
+        { id, image, name, price: id, amount: 1 },
       ]);
     }
 
-    let pokemonsSelectedList = [...pokemonSelected];
-    pokemonsSelectedList[found].amount += 1;
+    let selectedPokemonList = [...selectedPokemon];
+    selectedPokemonList[pokemonFound].amount += 1;
 
-    setPokemonSelected(pokemonsSelectedList);
+    setSelectedPokemon(selectedPokemonList);
   };
 
   const filterUpdate = (value) => {
@@ -46,7 +56,7 @@ export const GlobalStorage = ({ children, typeURL }) => {
 
   const resetCart = () => {
     setClickedButtons([]);
-    setPokemonSelected([]);
+    setSelectedPokemon([]);
   };
 
   return (
@@ -54,8 +64,8 @@ export const GlobalStorage = ({ children, typeURL }) => {
       value={{
         pokemonList,
         type,
-        pokemonSelected,
-        getPokemonSelected,
+        selectedPokemon,
+        insertSelectedPokemon,
         filterUpdate,
         filterPokemon,
         resetCart,
@@ -63,6 +73,7 @@ export const GlobalStorage = ({ children, typeURL }) => {
         setModalIsOpen,
         clickedButtons,
         setClickedButtons,
+        getIdFromURL,
       }}
     >
       {children}

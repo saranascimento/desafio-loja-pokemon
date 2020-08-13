@@ -6,12 +6,9 @@ import { GlobalContext } from '../../GlobalContext';
 import styles from './Cards.module.css';
 
 const Cards = () => {
-  const { pokemonList, filterPokemon } = React.useContext(GlobalContext);
-
-  const getIdFromURL = (url) => {
-    let id = parseInt(url.split('/')[6]);
-    return id;
-  };
+  const { pokemonList, filterPokemon, getIdFromURL } = React.useContext(
+    GlobalContext,
+  );
 
   if (pokemonList === null) return null;
 
@@ -30,7 +27,7 @@ const Cards = () => {
               pokemon.pokemon.url,
             )}.png`}
             name={pokemon.pokemon.name}
-            price={getIdFromURL(pokemon.pokemon.url)}
+            id={getIdFromURL(pokemon.pokemon.url)}
           />
         ))}
     </div>

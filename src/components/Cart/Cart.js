@@ -8,7 +8,7 @@ import ThankfulModal from '../ThankfulModal/ThankfulModal';
 
 const Cart = () => {
   const {
-    pokemonSelected,
+    selectedPokemon,
     resetCart,
     filterUpdate,
     type,
@@ -25,7 +25,7 @@ const Cart = () => {
   };
 
   const handleOpen = () => {
-    if (pokemonSelected.length === 0) {
+    if (selectedPokemon.length === 0) {
       return;
     } else {
       setModalIsOpen(true);
@@ -45,17 +45,19 @@ const Cart = () => {
       </div>
 
       <div className={styles.cartBody}>
-        {pokemonSelected &&
-          pokemonSelected.map((pokemon, index) => (
-            <ItemCart key={index} pokemon={pokemon} />
-          ))}
+        {selectedPokemon &&
+          selectedPokemon.map((pokemon, index) => {
+            if (pokemon.id !== 0)
+              return <ItemCart key={index} pokemon={pokemon} />;
+            return null;
+          })}
       </div>
 
       <div className={styles.cartFooter}>
         <div className={styles.cartSummary}>
           <div className={styles.cartAmountItems}>
             <span className={styles.cartPrice}>
-              {pokemonSelected.reduce((totalPrice, pokemon) => {
+              {selectedPokemon.reduce((totalPrice, pokemon) => {
                 return totalPrice + pokemon.amount;
               }, 0)}{' '}
               Pokemon
@@ -71,7 +73,7 @@ const Cart = () => {
                 src={'/img/pokecoin.png'}
               />
               <span className="price">
-                {pokemonSelected.reduce((totalPrice, pokemon) => {
+                {selectedPokemon.reduce((totalPrice, pokemon) => {
                   return totalPrice + Number(pokemon.price * pokemon.amount);
                 }, 0)}
               </span>
