@@ -8,7 +8,6 @@ export const GlobalStorage = ({ children, typeURL }) => {
   const [selectedPokemon, setSelectedPokemon] = React.useState([
     { id: 0, image: '', name: '', price: 0, amount: 0 },
   ]);
-  console.log(selectedPokemon);
   const [type, setType] = React.useState('');
   const [filterPokemon, setFilterPokemon] = React.useState('');
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
@@ -56,7 +55,7 @@ export const GlobalStorage = ({ children, typeURL }) => {
 
   const resetCart = () => {
     setClickedButtons([]);
-    setSelectedPokemon([]);
+    setSelectedPokemon([{ id: 0, image: '', name: '', price: 0, amount: 0 }]);
   };
 
   return (
