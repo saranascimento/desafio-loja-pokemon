@@ -11,7 +11,6 @@ export const GlobalStorage = ({ children, typeURL }) => {
   const [type, setType] = React.useState('');
   const [filterPokemon, setFilterPokemon] = React.useState('');
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const [clickedButtons, setClickedButtons] = React.useState([]);
 
   React.useEffect(() => {
     async function loadPokemons() {
@@ -54,7 +53,6 @@ export const GlobalStorage = ({ children, typeURL }) => {
   };
 
   const resetCart = () => {
-    setClickedButtons([]);
     setSelectedPokemon([{ id: 0, image: '', name: '', price: 0, amount: 0 }]);
   };
 
@@ -70,8 +68,6 @@ export const GlobalStorage = ({ children, typeURL }) => {
         resetCart,
         modalIsOpen,
         setModalIsOpen,
-        clickedButtons,
-        setClickedButtons,
         getIdFromURL,
       }}
     >

@@ -3,12 +3,13 @@ import { GlobalContext } from '../../GlobalContext';
 import styles from './Card.module.css';
 
 const Card = ({ index, image, name, id }) => {
-  const {
-    type,
-    insertSelectedPokemon,
-    clickedButtons,
-    setClickedButtons,
-  } = React.useContext(GlobalContext);
+  const { type, insertSelectedPokemon, selectedPokemon } = React.useContext(
+    GlobalContext,
+  );
+
+  const findPokemonById = (id) => {
+    return selectedPokemon.find((pokemon) => pokemon.id === id);
+  };
 
   return (
     <article key={index} className={`${styles.card} ${styles[`card-${type}`]}`}>
@@ -27,23 +28,18 @@ const Card = ({ index, image, name, id }) => {
 
           <button
             className={`${styles.btn} ${styles[`btn-${type}`]}
-              ${
-                clickedButtons.includes(id) ? styles[`adicionado-${type}`] : ''
-              }`}
+              ${findPokemonById(id) ? styles[`adicionado-${type}`] : ''}`}
             href="#"
             onClick={() => {
               insertSelectedPokemon(image, name, id);
-              setClickedButtons([...clickedButtons, id]);
             }}
           >
-            {clickedButtons.includes(id) ? 'Adicionado' : 'Adicionar +'}
+            {findPokemonById(id) ? 'Adicionado' : 'Adicionar +'}
           </button>
         </figcaption>
       </figure>
     </article>
   );
 };
-
-// type, image, name, price
 
 export default Card;
