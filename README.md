@@ -18,7 +18,7 @@ ou
 $ yarn start
 ```
 
- Para começar a comprar seus pokemon (Sim, o plural de Pokemon é Pokemon, haha) você pode acessar a PokeStore dos Pokemon de fogo clicando [aqui](http://localhost:3000/fire) , ou clicar [aqui](http://localhost:3000/grass) para a loja dos Pokemon do tipo Grama.
+ Para começar a comprar seus pokemon (Sim, o plural de Pokemon é Pokemon, haha) você pode acessar a PokeStore dos Pokemon de fogo clicando [aqui](https://desafio-pokestore.netlify.app/fire) , ou clicar [aqui](https://desafio-pokestore.netlify.app/grass) para a loja dos Pokemon do tipo Grama.
 
 ### Links dos temas:
  
